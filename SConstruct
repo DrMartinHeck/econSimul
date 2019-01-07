@@ -2,5 +2,12 @@
 
 env = DefaultEnvironment()
 
-Program ("econSimul", [Glob('src/*.cc')] , CPPPATH=['./inc'],\
+Program ("econSimul", [Glob('core/*.cc')] , CPPPATH=['.'],\
   CCFLAGS = ['-std=c++17', '-ggdb', '-D DEBUG'])
+
+Program('unittests', \
+# add all test files and googletest code
+[Glob('tests/*.cc'), Glob('classes/*.cc'), '../googletest/googletest/src/gtest_main.cc', '../googletest/googletest/src/gtest-all.cc'],\
+LIBS=['pthread'],\
+# setup the proper include path for google test
+CPPPATH=['../googletest/googletest/include/', '.', '../googletest/googletest/'], CCFLAGS = ['-std=c++17', '-g'])
