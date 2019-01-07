@@ -3,7 +3,8 @@
 env = DefaultEnvironment()
 
 Program ("econSimul", [Glob('core/*.cc')] , CPPPATH=['.'],\
-  CCFLAGS = ['-std=c++17', '-ggdb', '-D DEBUG'])
+  CCFLAGS = ['-std=c++17', '-ggdb', '-D DEBUG'# , '-O3' \
+  ])
 
 Program('unittests', \
 # add all test files and googletest code
