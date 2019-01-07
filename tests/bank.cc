@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <banks/Bank.h>
+#include <core/Bank.h>
 
 TEST(BankTest, getEquity)
 {
