@@ -8,7 +8,9 @@ int main()
   std::cout << "Hello World!" << std::endl;
 
   //Bank failure and creation is out of the scope of the simulation, so we start with just a fixed set of banks:
-  std::vector<Bank>  banks {{"Erste Bank"}};
+  //std::vector<Bank>  banks {{"Erste Bank"}};
+  std::vector<Bank>  banks;
+  banks.emplace_back("Erste Bank");
 
   std::cout << banks[0].getEquity() << std::endl;
 
