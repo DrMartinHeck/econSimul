@@ -27,12 +27,24 @@ public:
   }
 
   virtual int getEquity(){
-    return 0;
+    return _reserves;
+  }
+
+  /** This function adds to the account of the bank with the Central Bank.
+   *
+   *  In the real world, this could be achieved, e.g. if the gov't donates bonds to the bank, which
+   *  the CB buys from the bank and adding the transaction value to the account of the bank with the CB.
+   */
+  virtual void addCBReserves(int value){
+    _reserves += value;
   }
 
 private:
-  /** deposits are the most sinple form of liabilities on the bank balance sheet. */
+  /** Deposits are the most sinple form of liabilities on the bank balance sheet. */
   std::vector<int> _deposits = {0};
+
+  //Holdings at the CB
+  int _reserves = 0;
 
   std::string const _name;
 };
